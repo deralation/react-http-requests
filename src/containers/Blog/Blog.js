@@ -25,21 +25,22 @@ class Blog extends Component {
                 });
 
                 this.setState({posts: updatedPosts});
-            });
+            }); 
     }
-
-    postSelectedHandler=(id)=>{
-        this.setState.selectedPostId = id;
+    
+    postSelectedHandler = (id) => {
+        this.setState({
+            selectedPostId: id
+        });
     }
 
     render () {
-
         const posts = this.state.posts.map(post => {
             return <Post 
                 key={post.id} 
                 title={post.title} 
                 author={post.author}
-                clicked={this.postSelectedHandler(post.id)}
+                clicked={() => this.postSelectedHandler(post.id)}
             />;
         });
 
